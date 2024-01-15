@@ -45,3 +45,23 @@ if (isAdmin) {
 if (isAdmin === false) {
     console.log("isAdmin is false.")
 }
+
+function christmasTree(n: number): string {
+    const max: number = n * 2 - 1;
+
+    let tree: string = "";
+
+    for (let i: number = 1; i <= n * 2; i++) {
+        const numberOfStars: number = i * 2 - 1;
+        const diff: number = max - numberOfStars;
+        if (i <= n) {
+            tree += ' '.repeat(diff / 2) + '*'.repeat(numberOfStars) + ' '.repeat(diff / 2) + '\n'
+            continue
+        }
+        tree += ' '.repeat((max - 1) / 2) + '*'.repeat(1) + ' '.repeat((max - 1) / 2) + '\n'
+    }
+
+    return tree;
+}
+
+console.log(christmasTree(20));
